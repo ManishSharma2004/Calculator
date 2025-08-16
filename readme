@@ -1,0 +1,41 @@
+This is a simple web-based calculator built using HTML, CSS, and JavaScript.
+It supports basic arithmetic operations as well as advanced functions like square root, power, logarithm (log base 10), and natural log (ln).
+It also includes a light/dark mode toggle for better usability.
+
+✨ Features
+
+➕➖✖️➗ Basic arithmetic operations
+
+√ Square root
+
+^ Power function
+
+log Logarithm (base 10)
+
+ln Natural log
+
+🌓 Light/Dark mode toggle
+
+⌫ Backspace and Clear functions
+
+🛠️ Technologies Used
+
+HTML5 – Structure of the calculator
+
+CSS3 – Styling, light & dark themes
+
+JavaScript (ES6) – Calculator logic and theme toggle
+
+🚀 How to Run
+
+Download or copy the project files.
+
+Open the index.html file in any modern web browser.
+
+Start using the calculator!
+
+📸 Preview
+
+Light Mode 🌞
+
+Dark Mode 🌙
