@@ -37,16 +37,20 @@
       background: var(--bg);
     }
     .display {
-      width: 100%;
-      height: 60px;
-      text-align: right;
-      font-size: 1.5rem;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 2px solid var(--accent);
-      border-radius: 8px;
-      background: var(--btn-bg);
-      color: var(--text);
+        width: 100%;
+        height: 60px;
+        text-align: right;
+        font-size: 1.5rem;
+        padding: 10px;
+        padding-right: 15px;   /* ✅ extra padding on right */
+        margin-bottom: 15px;
+        border: 2px solid var(--accent);
+        border-radius: 8px;
+        background: var(--btn-bg);
+        color: var(--text);
+        overflow-x: auto;      /* ✅ enable horizontal scrolling */
+        white-space: nowrap;   /* ✅ keep text in one line */
+        box-sizing: border-box; /* ✅ include padding in width */
     }
     .buttons {
       display: grid;
@@ -114,6 +118,8 @@
 
   <script>
     const display = document.getElementById("display");
+    
+
 
     function appendValue(val) {
       display.value += val;
