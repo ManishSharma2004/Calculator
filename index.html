@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --btn-bg: #f0f0f0;
+      --btn-text: #000000;
+      --accent: #007bff;
+    }
+    body.dark {
+      --bg: #1e1e1e;
+      --text: #ffffff;
+      --btn-bg: #333333;
+      --btn-text: #ffffff;
+      --accent: #ff9800;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: 0.3s;
+    }
+    .calculator {
+      width: 320px;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      background: var(--bg);
+    }
+    .display {
+      width: 100%;
+      height: 60px;
+      text-align: right;
+      font-size: 1.5rem;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      background: var(--btn-bg);
+      color: var(--text);
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    button {
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .toggle {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="toggle">
+      <button onclick="toggleMode()">🌞 / 🌙</button>
+    </div>
+    <input type="text" id="display" class="display" readonly>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendValue('(')">(</button>
+      <button onclick="appendValue(')')">)</button>
+      <button onclick="appendValue('/')">÷</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">×</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">−</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendValue('**')">^</button>
+
+      <button onclick="appendFunc('Math.sqrt(')">√</button>
+      <button onclick="appendFunc('Math.log10(')">log</button>
+      <button onclick="appendFunc('Math.log(')">ln</button>
+      <button onclick="backspace()">⌫</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+
+    function appendValue(val) {
+      display.value += val;
+    }
+
+    function appendFunc(func) {
+      display.value += func;
+    }
+
+    function clearDisplay() {
+      display.value = "";
+    }
+
+    function backspace() {
+      display.value = display.value.slice(0, -1);
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = "Error";
+      }
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+    }
+  </script>
+</body>
+</html>
